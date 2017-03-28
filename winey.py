@@ -17,5 +17,9 @@ if __name__ == "__main__":
     updater.start_webhook(listen="0.0.0.0",
                           port=PORT,
                           url_path=TOKEN)
+
+    updater.dispatcher.add_handler(CommandHandler('start', start))
+    updater.dispatcher.add_handler(CommandHandler('hello', hello))
+
     updater.bot.setWebhook("https://wineyapp.herokuapp.com/" + TOKEN)
     updater.idle()
