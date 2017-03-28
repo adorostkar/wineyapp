@@ -13,17 +13,17 @@ def hello(bot, update):
     update.message.reply_text(
         'Hello {}'.format(update.message.from_user.first_name))
 
-if __name__ == "__main__":
-    PORT = int(os.environ.get('PORT', '5000'))
-    updater = Updater(TOKEN)
-    # add handlers
-    updater.start_webhook(listen="0.0.0.0",
-                          port=PORT,
-                          url_path=TOKEN)
 
-    updater.dispatcher.add_handler(CommandHandler('start', start))
-    updater.dispatcher.add_handler(CommandHandler('hello', hello))
-    updater.dispatcher.add_handler(MessageHandler(Filters.command, unknown))
+PORT = int(os.environ.get('PORT', '5000'))
+updater = Updater(TOKEN)
+# add handlers
+updater.start_webhook(listen="0.0.0.0",
+                      port=PORT,
+                      url_path=TOKEN)
 
-    updater.bot.setWebhook("https://rocky-tor-62618.herokuapp.com/" + TOKEN)
-    updater.idle()
+updater.dispatcher.add_handler(CommandHandler('start', start))
+updater.dispatcher.add_handler(CommandHandler('hello', hello))
+updater.dispatcher.add_handler(MessageHandler(Filters.command, unknown))
+
+updater.bot.setWebhook("https://rocky-tor-62618.herokuapp.com/" + TOKEN)
+updater.idle()
