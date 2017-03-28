@@ -1,1 +1,1 @@
-web: python <winey.py>
+web: python winey.py
