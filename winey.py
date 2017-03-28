@@ -3,15 +3,19 @@ from telegram.ext import Updater, CommandHandler, MessageHandler, Filters
 
 TOKEN = "358433791:AAGovZQX0V8iOa1050MiRGtt2SGTHX4x9Xs"
 
+
 def unknown(bot, update):
     bot.sendMessage(chat_id=update.message.chat_id, text="Sorry, I didn't understand that command.")
+
 
 def start(bot, update):
     update.message.reply_text('Hello World!')
 
+
 def hello(bot, update):
     update.message.reply_text(
         'Hello {}'.format(update.message.from_user.first_name))
+
 
 if __name__ == "__main__":
     PORT = int(os.environ.get('PORT', '5000'))
