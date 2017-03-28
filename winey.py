@@ -3,6 +3,9 @@ from telegram.ext import Updater, CommandHandler
 
 TOKEN = "358433791:AAGovZQX0V8iOa1050MiRGtt2SGTHX4x9Xs"
 
+def unknown(bot, update):
+    bot.sendMessage(chat_id=update.message.chat_id, text="Sorry, I didn't understand that command.")
+
 def start(bot, update):
     update.message.reply_text('Hello World!')
 
@@ -20,6 +23,7 @@ if __name__ == "__main__":
 
     updater.dispatcher.add_handler(CommandHandler('start', start))
     updater.dispatcher.add_handler(CommandHandler('hello', hello))
+    updater.dispatcher.add_handler(MessageHandler(Filters.command, unknown))
 
     updater.bot.setWebhook("https://wineyapp.herokuapp.com/" + TOKEN)
     updater.idle()
