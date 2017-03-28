@@ -25,5 +25,5 @@ if __name__ == "__main__":
     updater.dispatcher.add_handler(CommandHandler('hello', hello))
     updater.dispatcher.add_handler(MessageHandler(Filters.command, unknown))
 
-    updater.bot.setWebhook("https://wineyapp.herokuapp.com/" + TOKEN)
+    updater.bot.setWebhook("https://rocky-tor-62618.herokuapp.com/" + TOKEN)
     updater.idle()
