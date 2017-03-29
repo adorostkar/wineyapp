@@ -14,7 +14,7 @@ def start(bot, update):
 
 def hello(bot, update):
     update.message.reply_text(
-        'Hello {}'.format(update.message.from_user.first_name))
+        'Hello {0}, {1}'.format(update.message.from_user.first_name, update.message.text))
 
 
 if __name__ == "__main__":
